@@ -16,17 +16,19 @@ const StatisticLine = (props) => {
   if (props.text === 'positive') {
     let total = props.values[3];
     let goods = props.values[0];
-    console.log(total, goods);
+
     let positive = (goods / total) ? (goods / total) : 0;
     positive = (positive === 1 ? 100 : positive);
+
     return <tr>{props.text} <td>{positive}</td>%</tr>
+
   } else if (props.text === 'average') {
     let score = props.values[0] - props.values[2];
     let total = props.values[3];
-    console.log(score, total);
     let average = (score / total) ? (score / total) : 0;
     
     return <tr>{props.text} <td>{average}</td></tr>
+
   } else {
     return <tr>{props.text} <td>{props.value}</td></tr>
   }
@@ -35,6 +37,7 @@ const StatisticLine = (props) => {
 const Statistics = (props) => {
   if (props.values[3] === 0) {
     return <p>No feedback given</p>
+    
   } else {
     return (
       <>
@@ -53,10 +56,10 @@ const Statistics = (props) => {
 
 const App = () => {
   // save clicks of each button to its own state
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
-  const all = good + neutral + bad
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+  const all = good + neutral + bad;
 
   return (
     <div>

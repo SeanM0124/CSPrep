@@ -11,7 +11,7 @@ const Stat = (props) => {
     <p>
       has {props.votes} votes
     </p>
-  )
+  );
 }
 
 const Header = (props) => {
@@ -29,30 +29,33 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
     'The only way to go fast, is to go well.'
-  ]
+  ];
 
   const upVote = (votes, selected) => {
     let updated = [...votes];
     updated[selected] += 1;
+
     return setVotes(updated);
   }
 
   const random = (max) => {
-    return Math.floor(Math.random() * max)
+    return Math.floor(Math.random() * max);
   }
 
   const findMostIndex = (votes) => {
-    let most = 0
+    let most = 0;
+
     votes.forEach((_, index) => {
       if (votes[index] > votes[most]) {
         most = index;
       } 
-    })
+    });
+
     return most;
   }
   
-  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
-  const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
+  const [selected, setSelected] = useState(0);
   const most = findMostIndex(votes);
 
   return (
